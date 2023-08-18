@@ -17,12 +17,12 @@ const TourCard = () => {
   return (
     <div className="tabs__content">
       <div className="tabs__block">
-        {tours.map((n) => (
-          <a href="#" className="tabs__card card">
-            <img className="card__img" src={n.img} alt="" />
+        {tours.map((el, i) => (
+          <a key={i} href="#" className="tabs__card card">
+            <img className="card__img" src={el.img} alt="" />
             <div className="card__group">
-              <h3 className="card__title section-subtitle">{n.title}</h3>
-              <p className="card__text p-small">{n.price}</p>
+              <h3 className="card__title section-subtitle">{el.title}</h3>
+              <p className="card__text p-small">{el.price}</p>
             </div>
             <p className="card__link p-big">Подробнее</p>
           </a>

@@ -12,7 +12,27 @@ import travelImg11 from "./../../img/travel/travel-img-11.jpg";
 import travelImg12 from "./../../img/travel/travel-img-12.jpg";
 import travelImg13 from "./../../img/travel/travel-img-13.jpg";
 
-function Travel() {
+const Travel = () => {
+  const photos = [
+    { img: travelImg1 },
+    { img: travelImg2 },
+    { img: travelImg3 },
+    { img: travelImg4 },
+    { img: travelImg5 },
+    { img: travelImg6 },
+    { img: travelImg7 },
+    { img: travelImg8 },
+    { img: travelImg9 },
+    { img: travelImg10 },
+    { img: travelImg11 },
+    { img: travelImg12 },
+    { img: travelImg13 },
+  ];
+
+  const topPhotos = photos.filter((img, index) => index < 4)
+  const middlePhotos = photos.filter((img, index) => index >= 4 && index < 9)
+  const bottomPhotos = photos.filter((img, index) => index >= 9 && index < 13)
+
   return (
     <section className="photo section">
       <div className="container photo__container">
@@ -23,80 +43,24 @@ function Travel() {
         </p>
         <div className="photo__content">
           <div className="photo__block">
-            <img
-              className="photo__img"
-              src={travelImg1}
-              alt=""
-            />
-            <img
-              className="photo__img  photo__img_desktop"
-              src={travelImg2}
-              alt=""
-            />
-            <img
-              className="photo__img  photo__img_tablet"
-              src={travelImg3}
-              alt=""
-            />
-            <img
-              className="photo__img"
-              src={travelImg4}
-              alt=""
-            />
+            {topPhotos.map((el, i) => (
+              <img key={i} className="photo__img" src={el.img} alt="" />
+            ))}
           </div>
           <div className="photo__block photo__block_big">
-            <img
-              className="photo__img"
-              src={travelImg5}
-              alt=""
-            />
-            <img
-              className="photo__img  photo__img_tablet"
-              src={travelImg6}
-              alt=""
-            />
-            <img
-              className="photo__img photo__img_desktop"
-              src={travelImg7}
-              alt=""
-            />
-            <img
-              className="photo__img"
-              src={travelImg8}
-              alt=""
-            />
-            <img
-              className="photo__img"
-              src={travelImg9}
-              alt=""
-            />
+            {middlePhotos.map((el, i) => (
+              <img key={i} className="photo__img" src={el.img} alt="" />
+            ))}
           </div>
           <div className="photo__block photo__block_bottom">
-            <img
-              className="photo__img"
-              src={travelImg10}
-              alt=""
-            />
-            <img
-              className="photo__img"
-              src={travelImg11}
-              alt=""
-            />
-            <img
-              className="photo__img photo__img_tablet"
-              src={travelImg12}
-              alt=""
-            />
-            <img
-              className="photo__img photo__img_desktop"
-              src={travelImg13}
-              alt=""
-            />
+            {bottomPhotos.map((el, i) => (
+              <img key={i} className="photo__img" src={el.img} alt="" />
+            ))}
           </div>
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default Travel;
