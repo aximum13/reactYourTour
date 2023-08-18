@@ -1,0 +1,225 @@
+.story {
+  text-align: center;
+
+  &__text {
+    margin: 30px auto 0;
+    max-width: 40%;
+    color: $gray300;
+
+    @media (max-width: $desktop) {
+      margin-top: 34px;
+      max-width: 46%;
+    }
+
+    @media (max-width: $tablet) {
+      margin-top: 20px;
+      max-width: 100%;
+    }
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-top: 100px;
+
+    @media (max-width: $tablet) {
+      margin-top: 50px;
+      gap: 22px;
+    }
+  }
+
+  &__card {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 60px;
+    min-height: 568px;
+    border-radius: 50px;
+    color: $white;
+    text-align: left;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      border-radius: 50px;
+      background-image: linear-gradient(
+        270deg,
+        rgba(0, 0, 0, 0) 0.01%,
+        rgba(0, 0, 0, 0.2) 100%
+      );
+      @media (max-width: $tablet) {
+        border-radius: 20px;
+      }
+    }
+
+    &:hover .card__img {
+      transform: scale(1.2);
+
+      @media (max-width: $tablet) {
+        transform: none;
+      }
+    }
+
+    @media (max-width: $desktop) {
+      padding-bottom: 54px;
+    }
+
+    @media (max-width: $tablet) {
+      padding: 30px 24px 26px 30px;
+      border-radius: 20px;
+      min-height: 454px;
+    }
+  }
+
+  .card {
+    &__img {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+      border-radius: 50px;
+      transition: all 0.3s ease-in-out;
+
+      @media (max-width: $tablet) {
+        border-radius: 20px;
+      }
+    }
+
+    &__group {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      &_top {
+        max-width: 56%;
+        flex-direction: column;
+
+        @media (max-width: $desktop) {
+          max-width: 74%;
+        }
+
+        @media (max-width: $tablet) {
+          max-width: 100%;
+        }
+      }
+
+      &_bottom {
+        align-items: center;
+      }
+    }
+
+    &__title {
+      color: $white;
+
+      @media (max-width: $tablet) {
+        max-width: 60%;
+      }
+    }
+
+    &__text {
+      margin-top: 36px;
+
+      @media (max-width: $tablet) {
+        margin-top: 24px;
+      }
+    }
+
+    &__list {
+      margin-top: 24px;
+      padding-left: 30px;
+
+      @media (max-width: $tablet) {
+        padding-left: 26px;
+      }
+    }
+
+    &__item {
+      &::marker {
+        font-size: 20px;
+
+        @media (max-width: $tablet) {
+          font-size: 14px;
+        }
+      }
+    }
+
+    &__link {
+      position: relative;
+      margin-top: auto;
+      padding: 6px 60px 6px 20px;
+      margin-left: -20px;
+      border-radius: 50px;
+      width: fit-content;
+      color: $white;
+      transition: all 0.3s ease;
+
+      @media (max-width: $tablet) {
+        margin-left: 0;
+        padding-left: 0;
+      }
+
+      &:hover {
+        background-color: $green400;
+
+        @media (max-width: $tablet) {
+          background-color: transparent;
+        }
+      }
+
+      &:active {
+        background-color: $orange200;
+
+        @media (max-width: $tablet) {
+          background-color: transparent;
+        }
+      }
+
+      &::before {
+        content: url(./../../img/svg/arrow-white.svg);
+        position: absolute;
+        right: 20px;
+        display: block;
+        width: 22px;
+        height: 26px;
+
+        @media (max-width: $tablet) {
+          top: 8px;
+        }
+      }
+    }
+
+    &__social {
+      display: flex;
+      gap: 34px;
+
+      @media (max-width: $tablet) {
+        display: none;
+      }
+    }
+  }
+  .social {
+    &__link {
+      border-bottom: 1px solid transparent;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        border-bottom: 1px solid $white;
+      }
+      &:active {
+        border-bottom: 1px solid $orange200;
+        color: $orange200;
+      }
+    }
+  }
+}
