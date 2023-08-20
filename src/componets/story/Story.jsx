@@ -47,7 +47,7 @@ const Story = () => {
                     ))}
                   </ul>
                 ) : (
-                  ""
+                   null
                 )}
               </div>
               <div className="card__group card__group_bottom">
@@ -55,10 +55,10 @@ const Story = () => {
                 <object>
                   <div className="card__social social">
                     <a href="#" className="social__link p-normal">
-                      instagram
+                      Instagram
                     </a>
                     <a href="#" className="social__link p-normal">
-                      facebook
+                      Facebook
                     </a>
                     <a href="#" className="social__link p-normal">
                       YouTube

@@ -14,24 +14,30 @@ import travelImg13 from "./../../img/travel/travel-img-13.jpg";
 
 const Travel = () => {
   const photos = [
-    { img: travelImg1 },
-    { img: travelImg2 },
-    { img: travelImg3 },
-    { img: travelImg4 },
-    { img: travelImg5 },
-    { img: travelImg6 },
-    { img: travelImg7 },
-    { img: travelImg8 },
-    { img: travelImg9 },
-    { img: travelImg10 },
-    { img: travelImg11 },
-    { img: travelImg12 },
-    { img: travelImg13 },
+    { type: "mobile", img: travelImg1 },
+    { type: "desktop", img: travelImg2 },
+    { type: "tablet", img: travelImg3 },
+    { type: "mobile", img: travelImg4 },
+    { type: "mobile", img: travelImg5 },
+    { type: "tablet", img: travelImg6 },
+    { type: "desktop", img: travelImg7 },
+    { type: "mobile", img: travelImg8 },
+    { type: "mobile", img: travelImg9 },
+    { type: "mobile", img: travelImg10 },
+    { type: "mobile", img: travelImg11 },
+    { type: "tablet", img: travelImg12 },
+    { type: "desktop", img: travelImg13 },
   ];
 
-  const topPhotos = photos.filter((img, index) => index < 4)
-  const middlePhotos = photos.filter((img, index) => index >= 4 && index < 9)
-  const bottomPhotos = photos.filter((img, index) => index >= 9 && index < 13)
+  const topPhotos = photos.filter((img, index) => index < 4);
+  const middlePhotos = photos.filter((img, index) => index >= 4 && index < 9);
+  const bottomPhotos = photos.filter((img, index) => index >= 9 && index < 13);
+
+  function photoAdaptive(type) {
+    if (type === "desktop") return "photo__img photo__img_desktop";
+    else if (type === "tablet") return "photo__img photo__img_tablet";
+    else return "photo__img";
+  }
 
   return (
     <section className="photo section">
@@ -44,17 +50,32 @@ const Travel = () => {
         <div className="photo__content">
           <div className="photo__block">
             {topPhotos.map((el, i) => (
-              <img key={i} className="photo__img" src={el.img} alt="" />
+              <img
+                key={i}
+                className={photoAdaptive(el.type)}
+                src={el.img}
+                alt=""
+              />
             ))}
           </div>
           <div className="photo__block photo__block_big">
             {middlePhotos.map((el, i) => (
-              <img key={i} className="photo__img" src={el.img} alt="" />
+              <img
+                key={i}
+                className={photoAdaptive(el.type)}
+                src={el.img}
+                alt=""
+              />
             ))}
           </div>
           <div className="photo__block photo__block_bottom">
             {bottomPhotos.map((el, i) => (
-              <img key={i} className="photo__img" src={el.img} alt="" />
+              <img
+                key={i}
+                className={photoAdaptive(el.type)}
+                src={el.img}
+                alt=""
+              />
             ))}
           </div>
         </div>
