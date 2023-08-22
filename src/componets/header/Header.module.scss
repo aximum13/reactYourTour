@@ -1,0 +1,121 @@
+@import "styles/variables";
+
+.header {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  color: $white;
+  transition: all 0.3s ease-in-out;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 88px;
+
+  &.container {
+    @media (max-width: $desktop) {
+      padding-left: 56px;
+      padding-right: 56px;
+    }
+
+    @media (max-width: $tablet) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}
+
+.logo {
+  @media (max-width: $tablet) {
+    &Img {
+      max-width: 132px;
+    }
+  }
+}
+
+.menu {
+  @media (max-width: $tablet) {
+    &.tablet {
+      display: none;
+    }
+  }
+
+  &List {
+    display: flex;
+    gap: 50px;
+
+    @media (max-width: $desktop) {
+      gap: 30px;
+    }
+  }
+
+  &Link {
+    border-bottom: 1px solid transparent;
+    font-size: 20px;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      border-color: $white;
+    }
+  }
+}
+
+.tel {
+  &Link {
+    font-size: 20px;
+
+    @media (max-width: $tablet) {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 142%;
+    }
+  }
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  background: rgba(243, 239, 232, 0.6);
+  backdrop-filter: blur(27px);
+  transition: all 0.3s ease-in-out;
+
+  .logoImg {
+    filter: brightness(0.1);
+  }
+
+  .menuLink {
+    color: $black;
+
+    &:hover {
+      border-color: $black;
+    }
+  }
+
+  .telLink {
+    color: $black;
+  }
+}
+
+.noFixed {
+  position: fixed;
+  top: -88px;
+  transition: all 0.3s ease-in-out;
+
+  .logoImg {
+    filter: brightness(0.1);
+  }
+
+  .menuLink {
+    color: $black;
+
+    &:hover {
+      border-color: $black;
+    }
+  }
+
+  .telLink {
+    color: $black;
+  }
+}

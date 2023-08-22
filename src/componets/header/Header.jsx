@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import logoImg from "./../../img/icons/logo.png";
+import logoImg from "img/icons/logo.png";
+import styles from './Header.module.scss'
 
 const Header = () => {
   const [scrollDown, setScrollDown] = useState(false);
@@ -29,6 +30,8 @@ const Header = () => {
     setScrollUp(scrollIsUp);
   };
 
+  console.log(styles)
+
   window.addEventListener("scroll", handleScroll);
 
   const links = [
@@ -48,26 +51,30 @@ const Header = () => {
   return (
     <header
       className={
-        scrollDown ? "header fixed" : scrollUp ? "header no-fixed" : "header"
+        scrollDown
+          ? styles.header + " " + styles.fixed
+          : scrollUp
+          ? styles.header + " " + styles.noFixed
+          : styles.header
       }
     >
-      <div className="container header__container">
-        <div className="header__logo logo">
-          <a href="/" className="logo__link">
-            <img src={logoImg} alt="YourTour" className="logo__img" />
+      <div className={styles.container + " container"}>
+        <div>
+          <a href="/">
+            <img src={logoImg} alt="YourTour" className={styles.logoImg} />
           </a>
         </div>
-        <nav className="header__menu menu tablet">
-          <ul className="menu__list">
+        <nav className={styles.menu + " " + styles.tablet}>
+          <ul className={styles.menuList}>
             {links.map((item, i) => (
-              <li key={i} className="menu__item">
+              <li key={i}>
                 <a
                   onClick={(e) => {
                     e.preventDefault();
                     smoothScroll(item.id);
                   }}
                   href={"#" + item.id}
-                  className="menu__link"
+                  className={styles.menuLink}
                 >
                   {item.title}
                 </a>
@@ -75,8 +82,8 @@ const Header = () => {
             ))}
           </ul>
         </nav>
-        <div className="header__tel tel">
-          <a href="tel:79999999999" className="tel__link">
+        <div>
+          <a href="tel:79999999999" className={styles.telLink}>
             +7 999 999 99 99
           </a>
         </div>

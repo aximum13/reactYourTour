@@ -1,12 +1,13 @@
 import Tab from "./Tab";
 import TourCard from "./TourCard";
+import styles from "./Tour.module.scss"
 
 const Tour = () => {
   return (
-    <section id="tours" className="tour section">
-      <div className="container tour__container">
-        <h2 className="section-title tour__title">Выбери свой тур</h2>
-        <div className="tour__tabs">
+    <section id="tours" className={styles.tour + " section"}>
+      <div className={styles.container + " container"}>
+        <h2 className="section-title">Выбери свой тур</h2>
+        <div className={styles.tabs}>
           <Tab />
           <TourCard />
         </div>

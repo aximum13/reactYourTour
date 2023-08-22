@@ -1,0 +1,42 @@
+@import "styles/variables";
+
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+
+  @media (max-width: $mobile) {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+.item {
+  border: none;
+  border-bottom: 1px solid transparent;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    border-bottom: 1px solid $black;
+  }
+
+  &Active {
+    border-bottom: 1px solid $orange200;
+    color: $orange200;
+
+    &:hover {
+      border-bottom: 1px solid $orange200;
+    }
+  }
+}
+
+.content {
+  margin-top: 100px;
+
+  @media (max-width: $tablet) {
+    margin-top: 50px;
+  }
+}
