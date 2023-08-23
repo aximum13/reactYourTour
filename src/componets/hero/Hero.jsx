@@ -9,7 +9,7 @@ const Hero = () => {
           Идейные соображения высшего порядка, а также рамки и место обучения
           кадров
         </p>
-        <a href="#" className={styles.btn + " p-small"}>
+        <a href="/#" className={styles.btn + " p-small"}>
           Найти тур
         </a>
       </div>

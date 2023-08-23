@@ -31,7 +31,6 @@
   border-radius: 50px;
   min-height: 530px;
   text-align: left;
-  transition: all 0.3s ease-in-out;
 
   @media (max-width: $tablet) {
     border-radius: 20px;
@@ -106,7 +105,7 @@
   left: 0;
   object-fit: cover;
   border-radius: 50px;
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 
   @media (max-width: $tablet) {
     border-radius: 20px;
@@ -136,7 +135,7 @@
   border-radius: 50px;
   width: fit-content;
   color: $white;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease;
 
   &::before {
     content: url(./../../img/svg/arrow-white.svg);

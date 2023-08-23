@@ -78,7 +78,7 @@
   line-height: 142%;
   background: $white;
   color: $black;
-  transition: all 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 
   @media (max-width: $tablet) {
     margin-top: 42px;

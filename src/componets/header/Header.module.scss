@@ -5,7 +5,6 @@
   z-index: 2;
   width: 100%;
   color: $white;
-  transition: all 0.3s ease-in-out;
 }
 
 .container {
@@ -54,7 +53,7 @@
   &Link {
     border-bottom: 1px solid transparent;
     font-size: 20px;
-    transition: all 0.2s ease-in-out;
+    transition: border-bottom 0.2s ease-in-out;
 
     &:hover {
       border-color: $white;
@@ -79,7 +78,7 @@
   top: 0;
   background: rgba(243, 239, 232, 0.6);
   backdrop-filter: blur(27px);
-  transition: all 0.3s ease-in-out;
+  transition: top 0.3s ease-in-out;
 
   .logoImg {
     filter: brightness(0.1);
@@ -101,7 +100,8 @@
 .noFixed {
   position: fixed;
   top: -88px;
-  transition: all 0.3s ease-in-out;
+  transition: background 0.3s ease-in-out, top 0.3s ease-in-out,
+    backdrop-filter 0.3s ease-in-out;
 
   .logoImg {
     filter: brightness(0.1);

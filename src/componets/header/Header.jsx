@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import logoImg from "img/icons/logo.png";
-import styles from './Header.module.scss'
+import styles from "./Header.module.scss";
+
+const links = [
+  { title: "Туры", id: "tours" },
+  { title: "Создать тур", id: "request" },
+  { title: "Отзывы", id: "reviews" },
+  { title: "Истории", id: "stories" },
+];
 
 const Header = () => {
   const [scrollDown, setScrollDown] = useState(false);
@@ -10,7 +17,7 @@ const Header = () => {
     let scrollNew = window.scrollY;
     let outerWidth = window.outerWidth;
 
-    const scrollIsDown = function () {
+    const scrollIsDown = () => {
       if (outerWidth > 450) {
         if (scrollNew > 450) {
           return true;
@@ -18,7 +25,7 @@ const Header = () => {
       } else return false;
     };
 
-    const scrollIsUp = function () {
+    const scrollIsUp = () => {
       if (outerWidth > 450) {
         if (scrollNew > 200 && scrollNew < 450) {
           return true;
@@ -30,23 +37,14 @@ const Header = () => {
     setScrollUp(scrollIsUp);
   };
 
-  console.log(styles)
-
   window.addEventListener("scroll", handleScroll);
 
-  const links = [
-    { title: "Туры", id: "tours" },
-    { title: "Создать тур", id: "request" },
-    { title: "Отзывы", id: "reviews" },
-    { title: "Истории", id: "stories" },
-  ];
-
-  function smoothScroll(id) {
+  const smoothScroll = (id) => {
     const element = document.getElementById(id);
     const yOffset = -100;
     const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
     window.scrollTo({ top: y, behavior: "smooth" });
-  }
+  };
 
   return (
     <header

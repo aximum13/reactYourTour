@@ -20,7 +20,7 @@ const TourCard = () => {
     <div className={styles.content}>
       <div className={styles.block}>
         {tours.map((el, i) => (
-          <a key={i} href="#" className={styles.card}>
+          <a key={i} href="/#" className={styles.card}>
             <img className={styles.img} src={el.img} alt="" />
             <div className={styles.group}>
               <h3 className={styles.title + " section-subtitle"}>{el.title}</h3>

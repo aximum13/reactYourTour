@@ -1,0 +1,131 @@
+@import "styles/variables";
+
+.travel {
+  text-align: center;
+}
+
+.container {
+  padding-left: 30px;
+  padding-right: 30px;
+  max-width: 100%;
+
+  @media (max-width: $desktop) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.title {
+  margin: 0 auto;
+}
+
+.text {
+  margin: 30px auto 0;
+  max-width: 40%;
+  color: $gray300;
+
+  @media (max-width: $desktop) {
+    margin-top: 18px;
+    max-width: 46%;
+  }
+
+  @media (max-width: $tablet) {
+    max-width: 100%;
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-rows: repeat(3, 300px);
+  gap: 30px;
+  margin-top: 100px;
+
+  @media (max-width: $desktop) {
+    grid-template-rows: repeat(3, 300px);
+  }
+
+  @media (max-width: $tablet) {
+    grid-template-rows: repeat(3, 200px);
+    gap: 18px;
+    margin-top: 50px;
+  }
+
+  @media (max-width: $mobile) {
+    grid-template-rows: repeat(3, 110px);
+  }
+}
+
+.block {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  overflow: hidden;
+
+  @media (max-width: $desktop) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  @media (max-width: $tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  &Big {
+    grid-template-columns: repeat(5, 1fr);
+
+    @media (max-width: $desktop) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (max-width: $tablet) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .img {
+      background-position: center;
+    }
+  }
+
+  &Bottom {
+    @media (max-width: $tablet) {
+      gap: 10px;
+    }
+  }
+}
+
+.card {
+  overflow: hidden;
+  border-radius: 50px;
+
+  @media (max-width: $tablet) {
+    border-radius: 20px;
+  }
+}
+
+.img {
+  border-radius: 50px;
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+
+  @media (max-width: $desktop) {
+    &Desktop {
+      display: none;
+    }
+  }
+
+  @media (max-width: $tablet) {
+    border-radius: 20px;
+    height: 200px;
+
+    &Tablet {
+      display: none;
+    }
+  }
+
+  @media (max-width: $mobile) {
+    height: 110px;
+  }
+}

@@ -1,23 +1,25 @@
-import instIcon from "./../../img/svg/inst.svg";
-import fbIcon from "./../../img/svg/fb.svg";
-import vkIcon from "./../../img/svg/vk.svg";
+import instIcon from "img/svg/inst.svg";
+import fbIcon from "img/svg/fb.svg";
+import vkIcon from "img/svg/vk.svg";
 
-function Footer() {
+import styles from './Footer.module.scss'
+
+const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="container footer__container">
-        <p className="footer__text p-normal">Наши социальные сети</p>
-        <div className="footer__social social">
-          <a href="" className="social__link p-normal">
-            <img src={instIcon} alt="" className="social__icon" />
+    <footer className={styles.footer}>
+      <div className={styles.container + " container"}>
+        <p className={styles.text + " p-normal"}>Наши социальные сети</p>
+        <div className={styles.social}>
+          <a href="" className={styles.link + " p-normal"}>
+            <img src={instIcon} alt="" className={styles.icon} />
             instagram
           </a>
-          <a href="" className="social__link p-normal">
-            <img src={fbIcon} alt="" className="social__icon" />
+          <a href="" className={styles.link + " p-normal"}>
+            <img src={fbIcon} alt="" className={styles.icon} />
             facebook
           </a>
-          <a href="" className="social__link p-normal">
-            <img src={vkIcon} alt="" className="social__icon" />
+          <a href="" className={styles.link + " p-normal"}>
+            <img src={vkIcon} alt="" className={styles.icon} />
             vkontakte
           </a>
         </div>

@@ -12,7 +12,9 @@ const Tab = () => {
 
   const [active, setActive] = React.useState(0);
 
-  const activeTab = (e) => setActive(+e.target.dataset.index);
+  const activeTab = (e) => setActive(+e.target.index);
+
+   
 
   return (
     <div className={styles.list}>
