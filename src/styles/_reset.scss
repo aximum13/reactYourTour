@@ -1,34 +1,54 @@
+@import "styles/variables";
+
 html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+* {
+  outline: none !important;
 }
 
 body {
   margin: 0;
+  font-family: $fontName01;
+  background-color: $beige100;
 }
 
 main {
   display: block;
 }
 
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
+h1,
+h2,
+h3,
+p {
+  margin: 0;
 }
+
 
 hr {
   box-sizing: content-box;
   height: 0;
   overflow: visible;
 }
-
+ 
 pre {
   font-family: monospace, monospace;
   font-size: 1em;
 }
 
 a {
+  color: inherit;
   background-color: transparent;
+  text-decoration: none;
 }
 
 abbr[title] {
@@ -70,8 +90,11 @@ sup {
 }
 
 img {
+  max-width: 100%;
   border-style: none;
 }
+
+ 
 
 button,
 input,
@@ -82,6 +105,7 @@ textarea {
   font-size: 100%;
   line-height: 1.15;
   margin: 0;
+  padding: 0;
 }
 
 button,
@@ -176,4 +200,13 @@ template {
 
 [hidden] {
   display: none;
+}
+
+nav {
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 }

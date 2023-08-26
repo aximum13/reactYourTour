@@ -1,0 +1,14 @@
+@import "styles/variables";
+
+.root {
+  font-weight: 700;
+  font-size: 59px;
+  line-height: 124%;
+  color: $black;
+
+  @media (max-width: $mobile) {
+    font-size: 34px;
+    line-height: 112%;
+    letter-spacing: 0.02em;
+  }
+}

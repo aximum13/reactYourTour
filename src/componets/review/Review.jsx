@@ -1,5 +1,13 @@
+import classNames from "classnames";
+import { Container } from "componets/container/Container";
+import { Section } from "componets/section/Section";
+import { SectionTitle } from "componets/section/sectionTitle/sectionTitle";
+import { SectionSubtitle } from "componets/section/sectionSubtitle/sectionSubtitle";
+
 import reviewImg1 from "img/review/review-1.jpg";
 import reviewImg2 from "img/review/review-2.jpg";
+
+import stylesText from "styles/text.module.scss";
 import styles from "./Review.module.scss";
 
 const reviews = [
@@ -24,12 +32,12 @@ const reviews = [
 
 const Review = () => {
   return (
-    <section id="reviews" className={styles.review + " section"}>
-      <div className="container">
-        <h2 className={styles.title + " section-title"}>
+    <Section id="reviews" className={styles.review}>
+      <Container>
+        <SectionTitle className={classNames(styles.title)}>
           Отзывы наших путешественников
-        </h2>
-        <p className={styles.subtitle + " p-normal"}>
+        </SectionTitle>
+        <p className={classNames(styles.subtitle, stylesText.normal)}>
           Идейные соображения высшего порядка, а также рамки и место обучения
           кадров
         </p>
@@ -38,23 +46,28 @@ const Review = () => {
             <div key={i} className={styles.card}>
               <div>
                 {el.text.map((text, i) => (
-                  <p key={i} className={styles.text + " p-big"}>
+                  <p
+                    key={i}
+                    className={classNames(styles.text, stylesText.big)}
+                  >
                     {text}
                   </p>
                 ))}
               </div>
               <div className={styles.group}>
                 <div className={styles.blockCard}>
-                  <h3 className="card__name section-subtitle">{el.name}</h3>
-                  <p className={styles.desc + " p-small"}>{el.tour}</p>
+                  <SectionSubtitle>{el.name}</SectionSubtitle>
+                  <p className={classNames(styles.desc, stylesText.small)}>
+                    {el.tour}
+                  </p>
                 </div>
                 <img src={el.img} alt="" className={styles.img} />
               </div>
             </div>
           ))}
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };
 

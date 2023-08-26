@@ -1,5 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import classNames from "classnames";
+import { Container } from "componets/container/Container";
+import smoothScroll from "utils/smoothScroll";
+
 import logoImg from "img/icons/logo.png";
+
 import styles from "./Header.module.scss";
 
 const links = [
@@ -13,7 +18,7 @@ const Header = () => {
   const [scrollDown, setScrollDown] = useState(false);
   const [scrollUp, setScrollUp] = useState(false);
 
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     let scrollNew = window.scrollY;
     let outerWidth = window.outerWidth;
 
@@ -22,7 +27,7 @@ const Header = () => {
         if (scrollNew > 450) {
           return true;
         }
-      } else return false;
+      }
     };
 
     const scrollIsUp = () => {
@@ -30,39 +35,35 @@ const Header = () => {
         if (scrollNew > 200 && scrollNew < 450) {
           return true;
         }
-      } else return false;
+      }
     };
 
-    setScrollDown(scrollIsDown);
-    setScrollUp(scrollIsUp);
-  };
+    setScrollDown(scrollIsDown());
+    setScrollUp(scrollIsUp());
+  }, []);
 
-  window.addEventListener("scroll", handleScroll);
-
-  const smoothScroll = (id) => {
-    const element = document.getElementById(id);
-    const yOffset = -100;
-    const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
-    window.scrollTo({ top: y, behavior: "smooth" });
-  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [handleScroll]);
 
   return (
     <header
-      className={
-        scrollDown
-          ? styles.header + " " + styles.fixed
-          : scrollUp
-          ? styles.header + " " + styles.noFixed
-          : styles.header
-      }
+      className={classNames(
+        styles.header,
+        { [styles.fixed]: scrollDown },
+        { [styles.noFixed]: scrollUp }
+      )}
     >
-      <div className={styles.container + " container"}>
+      <Container className={styles.container}>
         <div>
           <a href="/">
             <img src={logoImg} alt="YourTour" className={styles.logoImg} />
           </a>
         </div>
-        <nav className={styles.menu + " " + styles.tablet}>
+        <nav className={classNames(styles.menu, styles.tablet)}>
           <ul className={styles.menuList}>
             {links.map((item, i) => (
               <li key={i}>
@@ -85,7 +86,7 @@ const Header = () => {
             +7 999 999 99 99
           </a>
         </div>
-      </div>
+      </Container>
     </header>
   );
 };

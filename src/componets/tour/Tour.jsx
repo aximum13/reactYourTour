@@ -1,18 +1,22 @@
-import Tab from "./Tab";
-import TourCard from "./TourCard";
-import styles from "./Tour.module.scss"
+import { Container } from "componets/container/Container";
+import { Section } from "componets/section/Section";
+import { SectionTitle } from "componets/section/sectionTitle/sectionTitle";
+import Tab from "./tab/Tab";
+import TourCard from "./tourCard/TourCard";
+
+import styles from "./Tour.module.scss";
 
 const Tour = () => {
   return (
-    <section id="tours" className={styles.tour + " section"}>
-      <div className={styles.container + " container"}>
-        <h2 className="section-title">Выбери свой тур</h2>
+    <Section id="tours" className={styles.tour}>
+      <Container>
+        <SectionTitle>Выбери свой тур</SectionTitle>
         <div className={styles.tabs}>
           <Tab />
           <TourCard />
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };
 

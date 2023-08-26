@@ -1,3 +1,8 @@
+import classNames from "classnames";
+import { Container } from "componets/container/Container";
+import { Section } from "componets/section/Section";
+import { SectionTitle } from "componets/section/sectionTitle/sectionTitle";
+
 import travelImg1 from "img/travel/travel-img-1.jpg";
 import travelImg2 from "img/travel/travel-img-2.jpg";
 import travelImg3 from "img/travel/travel-img-3.jpg";
@@ -12,6 +17,7 @@ import travelImg11 from "img/travel/travel-img-11.jpg";
 import travelImg12 from "img/travel/travel-img-12.jpg";
 import travelImg13 from "img/travel/travel-img-13.jpg";
 
+import stylesText from "styles/text.module.scss";
 import styles from "./Travel.module.scss";
 
 const topPhotos = [
@@ -36,18 +42,20 @@ const bottomPhotos = [
 
 const Travel = () => {
   const photoAdaptive = (type) => {
-    if (type === "desktop") return styles.img + " " + styles.imgDesktop;
-    else if (type === "tablet") return styles.img + " " + styles.imgTablet;
-    else return styles.img;
+    return classNames(
+      styles.img,
+      { [styles.imgDesktop]: type === "desktop" },
+      { [styles.imgTablet]: type === "tablet" }
+    );
   };
 
   return (
-    <section className={styles.travel + " section"}>
-      <div className={"container " + styles.container}>
-        <h2 className={styles.title + " section-title"}>
+    <Section className={styles.travel}>
+      <Container className={styles.container}>
+        <SectionTitle className={classNames(styles.title, "section-title")}>
           Фотографии путешествий
-        </h2>
-        <p className={styles.text + " p-normal"}>
+        </SectionTitle>
+        <p className={classNames(styles.text, stylesText.normal)}>
           Идейные соображения высшего порядка, а также рамки и место обучения
           кадров
         </p>
@@ -62,7 +70,7 @@ const Travel = () => {
               />
             ))}
           </div>
-          <div className={styles.block + " " + styles.blockBig}>
+          <div className={classNames(styles.block, styles.blockBig)}>
             {middlePhotos.map((el, i) => (
               <img
                 key={i}
@@ -72,7 +80,7 @@ const Travel = () => {
               />
             ))}
           </div>
-          <div className={styles.block + " " + styles.blockBottom}>
+          <div className={classNames(styles.block, styles.blockBottom)}>
             {bottomPhotos.map((el, i) => (
               <img
                 key={i}
@@ -83,8 +91,8 @@ const Travel = () => {
             ))}
           </div>
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };
 

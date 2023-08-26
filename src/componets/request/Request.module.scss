@@ -155,11 +155,15 @@
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
-    background-image: url(./../../img/svg/dropdown.svg);
+    background-image: url(/img/svg/dropdown.svg);
     background-repeat: no-repeat;
     background-position: 96% center;
-    color: $gray300;
+    color: $black;
     cursor: pointer;
+
+    &Placeholder {
+      color: $gray300;
+    }
   }
 
   &Date {

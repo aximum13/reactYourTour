@@ -1,18 +1,22 @@
+import classNames from "classnames";
+import { Container } from "componets/container/Container";
+
+import stylesText from "styles/text.module.scss";
 import styles from "./Hero.module.scss";
 
 const Hero = () => {
   return (
     <section className={styles.hero}>
-      <div className={styles.container + " container"}>
+      <Container className={styles.container}>
         <h1 className={styles.title}>Идеальные путешествия существуют</h1>
-        <p className={styles.text + " p-normal"}>
+        <p className={classNames(styles.text, stylesText.normal)}>
           Идейные соображения высшего порядка, а также рамки и место обучения
           кадров
         </p>
-        <a href="/#" className={styles.btn + " p-small"}>
+        <a href="/#" className={classNames(styles.btn, stylesText.small)}>
           Найти тур
         </a>
-      </div>
+      </Container>
     </section>
   );
 };

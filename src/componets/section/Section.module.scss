@@ -1,0 +1,11 @@
+@import "styles/variables";
+
+.root {
+  margin-top: 134px;
+  margin-bottom: 134px;
+
+  @media (max-width: $tablet) {
+    margin-top: 74px;
+    margin-bottom: 74px;
+  }
+}
